@@ -125,6 +125,7 @@
     <Compile Include="Models\Ingredients.cs" />
     <Compile Include="Models\IngredientsList.cs" />
     <Compile Include="Models\MenuItems.cs" />
+    <Compile Include="Models\menuItemsForOrder.cs" />
     <Compile Include="Models\MenuItemsList.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\OrdersList.cs" />
