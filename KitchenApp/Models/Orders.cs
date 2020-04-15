@@ -17,18 +17,8 @@ namespace KitchenApp.Models
         public string employee_id { get; set; }
         //soon will have a table number
         public int table_number { get; set; }
+        public string time_completed {get; set;}
         public string table_number_string => "Table " + table_number;
 
-        /*
-        public IList<string> OrderToDisplay()
-        {
-            if(menuItems != null)
-            {
-                foreach(MenuItems m in menuItems)
-                {
-                }
-            }
-        }
-        */
     }
 }

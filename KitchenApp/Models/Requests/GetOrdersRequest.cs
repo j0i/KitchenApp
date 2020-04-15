@@ -20,8 +20,15 @@ namespace KitchenApp.Models.Requests
 
             if(response.Orders != null)
             {
-                RealmManager.RemoveAll<OrdersList>();
-                RealmManager.AddOrUpdate<OrdersList>(response);
+                // Will filter out any properties that hold time_completed property as those are orders that are already finished
+                List<Orders> ordersFiltered = response.Orders.Where(s => String.IsNullOrEmpty(s.time_completed)).ToList();
+
+                RealmManager.RemoveAll<Orders>();
+                
+                //RealmManager.RemoveAll<OrdersList>();
+                //RealmManager.AddOrUpdate<OrdersList>(response);
+
+                RealmManager.AddOrUpdate<Orders>(ordersFiltered);
                 return true;
             }
             else

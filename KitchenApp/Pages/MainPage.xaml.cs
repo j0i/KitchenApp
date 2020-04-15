@@ -48,8 +48,44 @@ namespace KitchenApp
         }
         private async Task RefreshItemSource()
         {
+            List<Orders> orderList0 = new List<Orders>();
+            List<Orders> orderList1 = new List<Orders>();
+            List<Orders> orderList2 = new List<Orders>();
+            List<Orders> orderList3 = new List<Orders>();
+            List<Orders> orderList4 = new List<Orders>();
+
             var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
-            uxReceivedOrdersControl.ItemsSource = RealmManager.All<OrdersList>().FirstOrDefault().Orders;
+            //var itemsList = RealmManager.All<OrdersList>().FirstOrDefault().Orders.ToList();
+            var itemsList = RealmManager.All<Orders>();
+
+            for (int i = 0; i < itemsList.Count(); i++)
+            {
+                if(i<4)
+                {
+                    orderList0.Add(itemsList.ElementAt(i));
+                }
+                if(i>=4 && i<8)
+                {
+                    orderList1.Add(itemsList.ElementAt(i));
+                }
+                if(i>=8 && i<12)
+                {
+                    orderList2.Add(itemsList.ElementAt(i));
+                }
+                if(i>=12 && i<16)
+                {
+                    orderList3.Add(itemsList.ElementAt(i));
+                }
+                if(i>=16 && i<20)
+                {
+                    orderList4.Add(itemsList.ElementAt(i));
+                }
+            }
+            uxReceivedOrdersControl0.ItemsSource = orderList0;
+            uxReceivedOrdersControl1.ItemsSource = orderList1;
+            uxReceivedOrdersControl2.ItemsSource = orderList2;
+            uxReceivedOrdersControl3.ItemsSource = orderList3;
+            uxReceivedOrdersControl4.ItemsSource = orderList4;
         }
     }
 }
