@@ -28,18 +28,17 @@
                 FontSize="23"
                 FontWeight="SemiBold"/>
         </StackPanel>
-        <GridView
-            x:Name="uxReceivedOrdersView"
+        <ScrollViewer
+            x:Name="uxReceivedOrdersScrollView"
             Grid.Column="1"
             Background="Tan">
-            <GridView.ItemTemplate>
-                <DataTemplate>
+            <ItemsControl x:Name="uxReceivedOrdersControl">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
                     <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
-                        VerticalAlignment ="Stretch"
                         Width="300"
-                        Height="Auto"
                         Background="White"
                         BorderBrush="NavajoWhite"
                         BorderThickness="2">
@@ -70,7 +69,6 @@
                         </ListView>
                         <StackPanel
                             Orientation="Horizontal"
-                            Height="Auto"
                             Background="White">
                             <Button
                                 x:Name="uxQuestion"
@@ -94,9 +92,10 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+                   </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 
 </Page>

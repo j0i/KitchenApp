@@ -49,7 +49,7 @@ namespace KitchenApp
         private async Task RefreshItemSource()
         {
             var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
-            uxReceivedOrdersView.ItemsSource = RealmManager.All<OrdersList>().FirstOrDefault().Orders;
+            uxReceivedOrdersControl.ItemsSource = RealmManager.All<OrdersList>().FirstOrDefault().Orders;
         }
     }
 }
