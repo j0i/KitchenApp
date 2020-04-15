@@ -20,6 +20,7 @@ namespace KitchenApp.Models.Requests
 
             if(response.Orders != null)
             {
+                RealmManager.RemoveAll<OrdersList>();
                 RealmManager.AddOrUpdate<OrdersList>(response);
                 return true;
             }

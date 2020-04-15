@@ -1,4 +1,5 @@
-﻿using KitchenApp.Models.Requests;
+﻿using KitchenApp.Models;
+using KitchenApp.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,7 +41,6 @@ namespace KitchenApp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await RefreshItemSource();
-            var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
         }
         private void Timer_Tick(object sender, object e)
         {
@@ -48,14 +48,8 @@ namespace KitchenApp
         }
         private async Task RefreshItemSource()
         {
-            IList<string> tempList = new List<string>()
-            {
-                "This",
-                "is",
-                "a",
-                "test"
-            };
-            uxReceivedOrdersView.ItemsSource = tempList;
+            var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
+            uxReceivedOrdersView.ItemsSource = RealmManager.All<OrdersList>().FirstOrDefault().Orders;
         }
     }
 }
