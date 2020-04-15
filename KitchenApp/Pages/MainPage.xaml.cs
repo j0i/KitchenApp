@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KitchenApp.Models.Requests;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -39,6 +40,7 @@ namespace KitchenApp
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await RefreshItemSource();
+            var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
         }
         private void Timer_Tick(object sender, object e)
         {
