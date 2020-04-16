@@ -21,6 +21,7 @@ namespace KitchenApp.Models
         public string item_type { get; set; }
         public string category { get; set; }
         public bool paid { get; set; }
+        public string time_completed {get; set;}
 
         //From here down, extra stuff that Orders returns
         public bool prepared { get; set; }

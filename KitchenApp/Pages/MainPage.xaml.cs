@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -26,6 +27,7 @@ namespace KitchenApp
     public sealed partial class MainPage : Page
     {
         DispatcherTimer Timer = new DispatcherTimer();
+        public string x;
         public MainPage()
         {
             this.InitializeComponent();
@@ -86,6 +88,27 @@ namespace KitchenApp
             uxReceivedOrdersControl2.ItemsSource = orderList2;
             uxReceivedOrdersControl3.ItemsSource = orderList3;
             uxReceivedOrdersControl4.ItemsSource = orderList4;
+        }
+        private void uxReceivedOrdersControl4_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Orders orders = (Orders)e.ClickedItem;
+        }
+        private void uxReceivedOrdersControl3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        private void uxReceivedOrdersControl2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+        private void uxReceivedOrdersControl1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Orders orders = (Orders)e.ClickedItem;
+
+        }
+        private void uxReceivedOrdersControl0_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Orders orders = (Orders)e.ClickedItem;
         }
     }
 }

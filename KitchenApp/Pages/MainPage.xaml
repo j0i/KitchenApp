@@ -36,10 +36,13 @@
             x:Name="uxReceivedOrdersScrollView0"
             Grid.Column="1"
             Background="Tan">
-            <ItemsControl x:Name="uxReceivedOrdersControl0">
-                <ItemsControl.ItemTemplate>
+            <ListView x:Name="uxReceivedOrdersControl0"
+                      Background="Tan"
+                      IsItemClickEnabled="True"
+                      ItemClick="uxReceivedOrdersControl0_ItemClick">
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                    <StackPanel
+                        <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
                         Width="300"
@@ -52,9 +55,10 @@
                             FontSize="15"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
-                        <ListView
-                            ItemsSource="{Binding menuItems}">
-                            <ListView.ItemTemplate>
+                            <ListView
+                                ItemsSource="{Binding menuItems}"
+                                SelectionMode="None">
+                                <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel
                                         Orientation="Vertical">
@@ -75,7 +79,7 @@
                             Orientation="Horizontal"
                             Background="White">
                             <Button
-                                x:Name="uxQuestion"
+                                x:Name="uxQuestion0"
                                 Foreground="Transparent"
                                 Height="30"
                                 Width="30">
@@ -84,8 +88,9 @@
                                 </Button.Background>
                             </Button>
                             <Button
-                                x:Name="uxComplete"
+                                x:Name="uxComplete0"
                                 Foreground="Transparent"
+                                Visibility="Collapsed"
                                 HorizontalAlignment="Right"
                                 Margin="25,0,0,0"
                                 Height="30"
@@ -97,16 +102,17 @@
                         </StackPanel>
                     </StackPanel>
                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
 
         <ScrollViewer
             x:Name="uxReceivedOrdersScrollView1"
             Grid.Column="2"
             Background="Tan">
-            <ItemsControl x:Name="uxReceivedOrdersControl1">
-                <ItemsControl.ItemTemplate>
+            <ListView x:Name="uxReceivedOrdersControl1"
+                      ItemClick="uxReceivedOrdersControl1_ItemClick">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
                         Orientation="Vertical"
@@ -122,7 +128,9 @@
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
-                            ItemsSource="{Binding menuItems}">
+                            ItemsSource="{Binding menuItems}"
+                            SelectionMode="None"
+                            IsItemClickEnabled="False">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel
@@ -146,6 +154,7 @@
                             <Button
                                 x:Name="uxQuestion"
                                 Foreground="Transparent"
+                                Visibility="Collapsed"
                                 Height="30"
                                 Width="30">
                                 <Button.Background>
@@ -155,6 +164,7 @@
                             <Button
                                 x:Name="uxComplete"
                                 Foreground="Transparent"
+                                Visibility="Collapsed"
                                 HorizontalAlignment="Right"
                                 Margin="25,0,0,0"
                                 Height="30"
@@ -166,16 +176,17 @@
                         </StackPanel>
                     </StackPanel>
                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
 
          <ScrollViewer
             x:Name="uxReceivedOrdersScrollView2"
             Grid.Column="3"
             Background="Tan">
-            <ItemsControl x:Name="uxReceivedOrdersControl2">
-                <ItemsControl.ItemTemplate>
+            <ListView x:Name="uxReceivedOrdersControl2"
+                      ItemClick="uxReceivedOrdersControl2_ItemClick">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
                         Orientation="Vertical"
@@ -191,7 +202,9 @@
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
-                            ItemsSource="{Binding menuItems}">
+                            ItemsSource="{Binding menuItems}"
+                            SelectionMode="None"
+                            IsItemClickEnabled="False">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel
@@ -216,6 +229,7 @@
                                 x:Name="uxQuestion"
                                 Foreground="Transparent"
                                 Height="30"
+                                Visibility="Collapsed"
                                 Width="30">
                                 <Button.Background>
                                     <ImageBrush ImageSource="/Assets/questionMark.jpg" Stretch="Fill"/>
@@ -226,6 +240,7 @@
                                 Foreground="Transparent"
                                 HorizontalAlignment="Right"
                                 Margin="25,0,0,0"
+                                Visibility="Collapsed"
                                 Height="30"
                                 Width="30">
                                 <Button.Background>
@@ -235,16 +250,17 @@
                         </StackPanel>
                     </StackPanel>
                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
 
          <ScrollViewer
             x:Name="uxReceivedOrdersScrollView3"
             Grid.Column="4"
             Background="Tan">
-            <ItemsControl x:Name="uxReceivedOrdersControl3">
-                <ItemsControl.ItemTemplate>
+            <ListView x:Name="uxReceivedOrdersControl3"
+                      ItemClick="uxReceivedOrdersControl3_ItemClick">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
                         Orientation="Vertical"
@@ -260,7 +276,9 @@
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
-                            ItemsSource="{Binding menuItems}">
+                            ItemsSource="{Binding menuItems}"
+                            IsItemClickEnabled="False"
+                            SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel
@@ -284,6 +302,7 @@
                             <Button
                                 x:Name="uxQuestion"
                                 Foreground="Transparent"
+                                Visibility="Collapsed"
                                 Height="30"
                                 Width="30">
                                 <Button.Background>
@@ -294,6 +313,7 @@
                                 x:Name="uxComplete"
                                 Foreground="Transparent"
                                 HorizontalAlignment="Right"
+                                Visibility="Collapsed"
                                 Margin="25,0,0,0"
                                 Height="30"
                                 Width="30">
@@ -304,16 +324,17 @@
                         </StackPanel>
                     </StackPanel>
                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
 
          <ScrollViewer
             x:Name="uxReceivedOrdersScrollView4"
             Grid.Column="5"
             Background="Tan">
-            <ItemsControl x:Name="uxReceivedOrdersControl4">
-                <ItemsControl.ItemTemplate>
+            <ListView x:Name="uxReceivedOrdersControl4"
+                      ItemClick="uxReceivedOrdersControl4_ItemClick">
+                <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
                         Orientation="Vertical"
@@ -329,7 +350,9 @@
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
-                            ItemsSource="{Binding menuItems}">
+                            ItemsSource="{Binding menuItems}"
+                            IsItemClickEnabled="False"
+                            SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel
@@ -351,8 +374,9 @@
                             Orientation="Horizontal"
                             Background="White">
                             <Button
-                                x:Name="uxQuestion"
+                                x:Name="uxQuestion4"
                                 Foreground="Transparent"
+                                Visibility="Collapsed"
                                 Height="30"
                                 Width="30">
                                 <Button.Background>
@@ -360,8 +384,9 @@
                                 </Button.Background>
                             </Button>
                             <Button
-                                x:Name="uxComplete"
+                                x:Name="uxComplete4"
                                 Foreground="Transparent"
+                                Visibility="Collapsed"
                                 HorizontalAlignment="Right"
                                 Margin="25,0,0,0"
                                 Height="30"
@@ -373,8 +398,8 @@
                         </StackPanel>
                     </StackPanel>
                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                </ListView.ItemTemplate>
+            </ListView>
         </ScrollViewer>
     </Grid>
 

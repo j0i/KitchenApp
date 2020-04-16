@@ -22,6 +22,7 @@ namespace KitchenApp.Models.Requests
             {
                 // Will filter out any properties that hold time_completed property as those are orders that are already finished
                 List<Orders> ordersFiltered = response.Orders.Where(s => String.IsNullOrEmpty(s.time_completed)).ToList();
+                ordersFiltered.RemoveAll(s => s.menuItems.Count == 0);
 
                 RealmManager.RemoveAll<Orders>();
                 

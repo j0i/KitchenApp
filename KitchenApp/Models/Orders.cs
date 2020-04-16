@@ -15,6 +15,7 @@ namespace KitchenApp.Models
         public string createdAt { get; set; }
         public string updatedAt { get; set; }
         public string employee_id { get; set; }
+
         //soon will have a table number
         public int table_number { get; set; }
         public string time_completed {get; set;}
