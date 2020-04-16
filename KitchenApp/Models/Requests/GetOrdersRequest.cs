@@ -25,11 +25,8 @@ namespace KitchenApp.Models.Requests
                 ordersFiltered.RemoveAll(s => s.menuItems.Count == 0);
 
                 RealmManager.RemoveAll<Orders>();
-                
-                //RealmManager.RemoveAll<OrdersList>();
-                //RealmManager.AddOrUpdate<OrdersList>(response);
-
                 RealmManager.AddOrUpdate<Orders>(ordersFiltered);
+
                 return true;
             }
             else

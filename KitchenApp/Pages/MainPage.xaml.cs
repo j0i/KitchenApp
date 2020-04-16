@@ -1,5 +1,6 @@
 ﻿using KitchenApp.Models;
 using KitchenApp.Models.Requests;
+using KitchenApp.Models.ServiceRequests;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -58,6 +59,10 @@ namespace KitchenApp
 
             var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
             //var itemsList = RealmManager.All<OrdersList>().FirstOrDefault().Orders.ToList();
+
+            string orderId = "5e967b70cd0dd200049ca25b";
+            //var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(orderId, RealmManager.All<Orders>().FirstOrDefault().menuItems.ToList());
+
             var itemsList = RealmManager.All<Orders>();
 
             for (int i = 0; i < itemsList.Count(); i++)
