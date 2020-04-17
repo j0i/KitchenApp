@@ -40,6 +40,18 @@
                       Background="Tan"
                       IsItemClickEnabled="True"
                       ItemClick="uxReceivedOrdersControl0_ItemClick">
+                      <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                       </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel
@@ -51,9 +63,10 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
                             VerticalAlignment="Center"
+                            TextDecorations="Underline"
                             Text="{Binding table_number_string}"/>
                             <ListView
                                 ItemsSource="{Binding menuItems}"
@@ -68,38 +81,13 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Background="White">
-                            <Button
-                                x:Name="uxQuestion0"
-                                Foreground="Transparent"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/questionMark.jpg" Stretch="Fill"/>
-                                </Button.Background>
-                            </Button>
-                            <Button
-                                x:Name="uxComplete0"
-                                Foreground="Transparent"
-                                Visibility="Collapsed"
-                                HorizontalAlignment="Right"
-                                Margin="25,0,0,0"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/checkMark.png"/>
-                                </Button.Background>
-                            </Button>
-                        </StackPanel>
                     </StackPanel>
                    </DataTemplate>
                 </ListView.ItemTemplate>
@@ -111,8 +99,21 @@
             Grid.Column="2"
             Background="Tan">
             <ListView x:Name="uxReceivedOrdersControl1"
+                      IsItemClickEnabled="True"
                       ItemClick="uxReceivedOrdersControl1_ItemClick">
-                <ListView.ItemTemplate>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
                         Orientation="Vertical"
@@ -123,7 +124,8 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
+                            TextDecorations="Underline"
                             FontSize="15"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
@@ -141,39 +143,13 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Background="White">
-                            <Button
-                                x:Name="uxQuestion"
-                                Foreground="Transparent"
-                                Visibility="Collapsed"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/questionMark.jpg" Stretch="Fill"/>
-                                </Button.Background>
-                            </Button>
-                            <Button
-                                x:Name="uxComplete"
-                                Foreground="Transparent"
-                                Visibility="Collapsed"
-                                HorizontalAlignment="Right"
-                                Margin="25,0,0,0"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/checkMark.png"/>
-                                </Button.Background>
-                            </Button>
-                        </StackPanel>
                     </StackPanel>
                    </DataTemplate>
                 </ListView.ItemTemplate>
@@ -185,7 +161,20 @@
             Grid.Column="3"
             Background="Tan">
             <ListView x:Name="uxReceivedOrdersControl2"
+                      IsItemClickEnabled="True"
                       ItemClick="uxReceivedOrdersControl2_ItemClick">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
@@ -197,8 +186,9 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
+                            TextDecorations="Underline"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
@@ -215,39 +205,13 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Background="White">
-                            <Button
-                                x:Name="uxQuestion"
-                                Foreground="Transparent"
-                                Height="30"
-                                Visibility="Collapsed"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/questionMark.jpg" Stretch="Fill"/>
-                                </Button.Background>
-                            </Button>
-                            <Button
-                                x:Name="uxComplete"
-                                Foreground="Transparent"
-                                HorizontalAlignment="Right"
-                                Margin="25,0,0,0"
-                                Visibility="Collapsed"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/checkMark.png"/>
-                                </Button.Background>
-                            </Button>
-                        </StackPanel>
                     </StackPanel>
                    </DataTemplate>
                 </ListView.ItemTemplate>
@@ -259,7 +223,20 @@
             Grid.Column="4"
             Background="Tan">
             <ListView x:Name="uxReceivedOrdersControl3"
+                      IsItemClickEnabled="True"
                       ItemClick="uxReceivedOrdersControl3_ItemClick">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
@@ -271,9 +248,10 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
                             VerticalAlignment="Center"
+                            TextDecorations="Underline"
                             Text="{Binding table_number_string}"/>
                         <ListView
                             ItemsSource="{Binding menuItems}"
@@ -289,39 +267,13 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Background="White">
-                            <Button
-                                x:Name="uxQuestion"
-                                Foreground="Transparent"
-                                Visibility="Collapsed"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/questionMark.jpg" Stretch="Fill"/>
-                                </Button.Background>
-                            </Button>
-                            <Button
-                                x:Name="uxComplete"
-                                Foreground="Transparent"
-                                HorizontalAlignment="Right"
-                                Visibility="Collapsed"
-                                Margin="25,0,0,0"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/checkMark.png"/>
-                                </Button.Background>
-                            </Button>
-                        </StackPanel>
                     </StackPanel>
                    </DataTemplate>
                 </ListView.ItemTemplate>
@@ -333,7 +285,20 @@
             Grid.Column="5"
             Background="Tan">
             <ListView x:Name="uxReceivedOrdersControl4"
+                      IsItemClickEnabled="True"
                       ItemClick="uxReceivedOrdersControl4_ItemClick">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                     <StackPanel
@@ -345,8 +310,9 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
+                            TextDecorations="Underline"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
@@ -363,44 +329,85 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <StackPanel
-                            Orientation="Horizontal"
-                            Background="White">
-                            <Button
-                                x:Name="uxQuestion4"
-                                Foreground="Transparent"
-                                Visibility="Collapsed"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/questionMark.jpg" Stretch="Fill"/>
-                                </Button.Background>
-                            </Button>
-                            <Button
-                                x:Name="uxComplete4"
-                                Foreground="Transparent"
-                                Visibility="Collapsed"
-                                HorizontalAlignment="Right"
-                                Margin="25,0,0,0"
-                                Height="30"
-                                Width="30">
-                                <Button.Background>
-                                    <ImageBrush ImageSource="/Assets/checkMark.png"/>
-                                </Button.Background>
-                            </Button>
-                        </StackPanel>
                     </StackPanel>
                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
+        <Popup
+            x:Name="uxOrdersPopup"
+            IsOpen="False"
+            Grid.Row="0"
+            Grid.Column="2"
+            HorizontalOffset="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <StackPanel
+                x:Name="uxOrdersPopUpPanel"
+                Height="250"
+                Width="320"
+                BorderBrush="DarkGray"
+                BorderThickness="2"
+                Orientation="Vertical"
+                Background="#B9B9B9">
+                <TextBlock
+                    x:Name="lblTableNumber"
+                    Foreground="Black"
+                    TextAlignment="Left"
+                    FontSize="25"
+                    Margin="0,15,0,25"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center"/>
+                <TextBlock
+                    Text="What would you like to do?"
+                    TextWrapping="Wrap"
+                    FontSize="20"
+                    Foreground="Black"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center"/>
+                <StackPanel
+                  x:Name="uxOrdersButtonsPanel"
+                  Orientation="Horizontal"
+                  Margin="0,60,0,0"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Bottom"
+                  Background="#B9B9B9">
+                    <Button
+                        x:Name="uxGetEmployeeButton"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Left"
+                        Background="AntiqueWhite"
+                        Margin="0,0,10,0"
+                        BorderBrush="DimGray"
+                        Click="uxGetEmployeeButton_Click"
+                        Foreground="Blue"/>
+                    <Button
+                        x:Name="uxCompleteOrderButton"
+                        Content="Complete Order"
+                        VerticalAlignment="Bottom"
+                        Background="AntiqueWhite"
+                        Margin="0,0,10,0"
+                        HorizontalAlignment="Right"
+                        Click="uxCompleteOrderButton_Click"
+                        Foreground="Blue"/>
+                    <Button
+                        x:Name="uxExitButton"
+                        Content="Cancel"
+                        VerticalAlignment="Bottom"
+                        Background="AntiqueWhite"
+                        HorizontalAlignment="Right"
+                        Click="uxExitButton_Click"
+                        Foreground="Red"/>
+                </StackPanel>
+            </StackPanel>
+        </Popup>
     </Grid>
 
 </Page>

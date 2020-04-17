@@ -28,12 +28,14 @@ namespace KitchenApp
     public sealed partial class MainPage : Page
     {
         DispatcherTimer Timer = new DispatcherTimer();
-        public string x;
+        public Orders c_ordersMaster;
+        public Employee c_employeeMaster;
         public MainPage()
         {
             this.InitializeComponent();
             DataContext = this;
             InitializeTimer();
+            RefreshEmployeeList();
         }
         private void InitializeTimer()
         {
@@ -49,21 +51,36 @@ namespace KitchenApp
         {
              lblTime.Text = DateTime.Now.ToString("h:mm:ss tt");
         }
+        public async void RefreshEmployeeList()
+        {
+            RealmManager.RemoveAll<EmployeeList>();
+            RealmManager.RemoveAll<Employee>();
+            var validEmployeesRequest = await GetEmployeeListRequest.SendGetEmployeeListRequest();
+        }
+        public async Task<string> GetEmployeeName(string employeeID)
+        {
+            var validEmployeesRequest = await GetEmployeeListRequest.SendGetEmployeeListRequest();
+            c_employeeMaster = RealmManager.Find<Employee>(employeeID);
+
+            return c_employeeMaster.first_name;
+        }
+        public void FilterPreparedOrders()
+        {
+            c_ordersMaster = (Orders)c_ordersMaster.menuItems.Where(p => !p.prepared);
+        }
+
         private async Task RefreshItemSource()
         {
+            var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
+
             List<Orders> orderList0 = new List<Orders>();
             List<Orders> orderList1 = new List<Orders>();
             List<Orders> orderList2 = new List<Orders>();
             List<Orders> orderList3 = new List<Orders>();
             List<Orders> orderList4 = new List<Orders>();
 
-            var validSendGetOrdersRequest = await GetOrdersRequest.SendGetOrdersRequest();
-            //var itemsList = RealmManager.All<OrdersList>().FirstOrDefault().Orders.ToList();
-
-            string orderId = "5e967b70cd0dd200049ca25b";
-            //var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(orderId, RealmManager.All<Orders>().FirstOrDefault().menuItems.ToList());
-
             var itemsList = RealmManager.All<Orders>();
+
 
             for (int i = 0; i < itemsList.Count(); i++)
             {
@@ -94,26 +111,72 @@ namespace KitchenApp
             uxReceivedOrdersControl3.ItemsSource = orderList3;
             uxReceivedOrdersControl4.ItemsSource = orderList4;
         }
-        private void uxReceivedOrdersControl4_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Orders orders = (Orders)e.ClickedItem;
-        }
-        private void uxReceivedOrdersControl3_ItemClick(object sender, ItemClickEventArgs e)
-        {
 
-        }
-        private void uxReceivedOrdersControl2_ItemClick(object sender, ItemClickEventArgs e)
+        /* Item sourced containers for all orders.
+           Each time an order block is clicked it will update class var c_ordersMaster 
+           to the order that was clicked on and populates popup values with unique order text */
+        private async void uxReceivedOrdersControl4_ItemClick(object sender, ItemClickEventArgs e)
         {
+            c_ordersMaster = (Orders)e.ClickedItem;
+            string employeeName = await GetEmployeeName(c_ordersMaster.employee_id);
+            lblTableNumber.Text = c_ordersMaster.table_number_string;
+            uxGetEmployeeButton.Content = "Get " + employeeName;
+            uxOrdersPopup.IsOpen = true;
+        }
+        private async void uxReceivedOrdersControl3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            c_ordersMaster = (Orders)e.ClickedItem;
+            string employeeName = await GetEmployeeName(c_ordersMaster.employee_id);
+            lblTableNumber.Text = c_ordersMaster.table_number_string;
+            uxGetEmployeeButton.Content = "Get " + employeeName;
+            uxOrdersPopup.IsOpen = true;
+        }
+        private async void uxReceivedOrdersControl2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            c_ordersMaster = (Orders)e.ClickedItem;
+            string employeeName = await GetEmployeeName(c_ordersMaster.employee_id);
+            lblTableNumber.Text = c_ordersMaster.table_number_string;
+            uxGetEmployeeButton.Content = "Get " + employeeName;
+            uxOrdersPopup.IsOpen = true;
+        }
+        private async void uxReceivedOrdersControl1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            c_ordersMaster = (Orders)e.ClickedItem;
+            string employeeName = await GetEmployeeName(c_ordersMaster.employee_id);
+            lblTableNumber.Text = c_ordersMaster.table_number_string;
+            uxGetEmployeeButton.Content = "Get " + employeeName;
+            uxOrdersPopup.IsOpen = true;
+        }
+        private async void uxReceivedOrdersControl0_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            c_ordersMaster = (Orders)e.ClickedItem;
+            string employeeName = await GetEmployeeName(c_ordersMaster.employee_id);
+            lblTableNumber.Text = c_ordersMaster.table_number_string;
+            uxGetEmployeeButton.Content = "Get " + employeeName;
+            uxOrdersPopup.IsOpen = true;
+            uxReceivedOrdersControl0.IsFocusEngaged=false ;
+        }
 
-        }
-        private void uxReceivedOrdersControl1_ItemClick(object sender, ItemClickEventArgs e)
+        // send notification to appropriate employee
+        private async void uxGetEmployeeButton_Click(object sender, RoutedEventArgs e)
         {
-            Orders orders = (Orders)e.ClickedItem;
+            string notificationType = "Order Question";
+            await PostNotificationsRequest.SendNotificationRequest(notificationType, RealmManager.All<Orders>().FirstOrDefault().employee_id, "Kitchen");
+            uxOrdersPopup.IsOpen = false;
+        }
+        // set all menu items to prepared
+        // send notification to appropriate employee
+        private async void uxCompleteOrderButton_Click(object sender, RoutedEventArgs e)
+        {
+            string notificationType = "Order Complete for " + c_ordersMaster.table_number_string;
+            var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(c_ordersMaster._id, c_ordersMaster.menuItems.ToList());
+            await PostNotificationsRequest.SendNotificationRequest(notificationType, RealmManager.All<Orders>().FirstOrDefault().employee_id, "Kitchen");
+            uxOrdersPopup.IsOpen = false;
+        }
 
-        }
-        private void uxReceivedOrdersControl0_ItemClick(object sender, ItemClickEventArgs e)
+        private void uxExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Orders orders = (Orders)e.ClickedItem;
+            uxOrdersPopup.IsOpen = false;
         }
     }
 }
