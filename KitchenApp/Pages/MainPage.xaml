@@ -63,9 +63,10 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
                             VerticalAlignment="Center"
+                            TextDecorations="Underline"
                             Text="{Binding table_number_string}"/>
                             <ListView
                                 ItemsSource="{Binding menuItems}"
@@ -80,7 +81,7 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
@@ -123,7 +124,8 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
+                            TextDecorations="Underline"
                             FontSize="15"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
@@ -141,7 +143,7 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
@@ -245,9 +247,10 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
                             VerticalAlignment="Center"
+                            TextDecorations="Underline"
                             Text="{Binding table_number_string}"/>
                         <ListView
                             ItemsSource="{Binding menuItems}"
@@ -263,7 +266,7 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
@@ -306,8 +309,9 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
+                            TextDecorations="Underline"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
@@ -324,7 +328,7 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>
@@ -347,7 +351,7 @@
             <StackPanel
                 x:Name="uxOrdersPopUpPanel"
                 Height="250"
-                Width="300"
+                Width="320"
                 BorderBrush="DarkGray"
                 BorderThickness="2"
                 Orientation="Vertical"
@@ -355,7 +359,8 @@
                 <TextBlock
                     x:Name="lblTableNumber"
                     Foreground="Black"
-                    FontSize="30"
+                    TextAlignment="Left"
+                    FontSize="25"
                     Margin="0,15,0,25"
                     FontWeight="SemiBold"
                     HorizontalAlignment="Center"/>
@@ -369,7 +374,7 @@
                 <StackPanel
                   x:Name="uxOrdersButtonsPanel"
                   Orientation="Horizontal"
-                  Margin="0,70,0,0"
+                  Margin="0,60,0,0"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Bottom"
                   Background="#B9B9B9">

@@ -161,6 +161,7 @@ namespace KitchenApp
         {
             string notificationType = "Order Question";
             await PostNotificationsRequest.SendNotificationRequest(notificationType, RealmManager.All<Orders>().FirstOrDefault().employee_id, "Kitchen");
+            uxOrdersPopup.IsOpen = false;
         }
         // set all menu items to prepared
         // send notification to appropriate employee
@@ -169,6 +170,7 @@ namespace KitchenApp
             string notificationType = "Order Complete for " + c_ordersMaster.table_number_string;
             var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(c_ordersMaster._id, c_ordersMaster.menuItems.ToList());
             await PostNotificationsRequest.SendNotificationRequest(notificationType, RealmManager.All<Orders>().FirstOrDefault().employee_id, "Kitchen");
+            uxOrdersPopup.IsOpen = false;
         }
 
         private void uxExitButton_Click(object sender, RoutedEventArgs e)
