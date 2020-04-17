@@ -120,7 +120,13 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\DeleteResponse.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeList.cs" />
+    <Compile Include="Models\NotificationResponse.cs" />
+    <Compile Include="Models\Notifications.cs" />
+    <Compile Include="Models\Requests\GetEmployeeListRequest.cs" />
     <Compile Include="Models\Requests\GetOrdersRequest.cs" />
+    <Compile Include="Models\Requests\PostNotificationsRequest.cs" />
     <Compile Include="Models\Requests\PutToPreparedRequest.cs" />
     <Compile Include="Models\ServiceRequest.cs" />
     <Compile Include="RealmManager.cs" />
