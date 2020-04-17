@@ -186,8 +186,9 @@
                         BorderThickness="2">
                         <TextBlock
                             Margin="5"
-                            Foreground="Black"
+                            Foreground="MediumBlue"
                             FontSize="15"
+                            TextDecorations="Underline"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
                         <ListView
@@ -204,7 +205,7 @@
                                             TextWrapping="Wrap"/>
                                         <TextBlock
                                             Text="{Binding specialInstruction}"
-                                            Foreground="Blue"
+                                            Foreground="Red"
                                             TextWrapping="Wrap"
                                             Margin="15,0,0,0"/>
                                     </StackPanel>

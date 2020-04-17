@@ -64,6 +64,10 @@ namespace KitchenApp
 
             return c_employeeMaster.first_name;
         }
+        public void FilterPreparedOrders()
+        {
+            c_ordersMaster = (Orders)c_ordersMaster.menuItems.Where(p => !p.prepared);
+        }
 
         private async Task RefreshItemSource()
         {
@@ -75,11 +79,8 @@ namespace KitchenApp
             List<Orders> orderList3 = new List<Orders>();
             List<Orders> orderList4 = new List<Orders>();
 
-            //var itemsList = RealmManager.All<OrdersList>().FirstOrDefault().Orders.ToList();
-            //string orderId = "5e9762a9c4125600040e9405";
-            //var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(orderId, RealmManager.All<Orders>().FirstOrDefault().menuItems.ToList());
-
             var itemsList = RealmManager.All<Orders>();
+
 
             for (int i = 0; i < itemsList.Count(); i++)
             {

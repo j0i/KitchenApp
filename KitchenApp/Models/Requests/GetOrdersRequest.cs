@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using Xamarin.Forms;
 
 namespace KitchenApp.Models.Requests
 {
@@ -23,6 +24,12 @@ namespace KitchenApp.Models.Requests
                 // Will filter out any properties that hold time_completed property as those are orders that are already finished
                 List<Orders> ordersFiltered = response.Orders.Where(s => String.IsNullOrEmpty(s.time_completed)).ToList();
                 ordersFiltered.RemoveAll(s => s.menuItems.Count == 0);
+
+                //filter out all orders which are prepared within ordersFiltered
+                foreach(Orders o in ordersFiltered)
+                {
+                    ordersFiltered = ordersFiltered.Where(s => s.menuItems.Any(m => !m.prepared)).ToList();
+                }
 
                 RealmManager.RemoveAll<Orders>();
                 RealmManager.AddOrUpdate<Orders>(ordersFiltered);
