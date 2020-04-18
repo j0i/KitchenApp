@@ -57,7 +57,7 @@
                         <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
-                        Width="300"
+                        Width="500"
                         Background="White"
                         BorderBrush="NavajoWhite"
                         BorderThickness="2">
@@ -68,6 +68,12 @@
                             VerticalAlignment="Center"
                             TextDecorations="Underline"
                             Text="{Binding table_number_string}"/>
+                        <TextBlock
+                            Margin="5,0,0,10"
+                            Foreground="Black"
+                            FontSize="13"
+                            VerticalAlignment="Center"
+                            Text="{Binding updatedAtString}"/>
                             <ListView
                                 ItemsSource="{Binding menuItems}"
                                 SelectionMode="None">
@@ -118,7 +124,7 @@
                     <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
-                        Width="300"
+                        Width="500"
                         Background="White"
                         BorderBrush="NavajoWhite"
                         BorderThickness="2">
@@ -129,6 +135,12 @@
                             FontSize="15"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
+                        <TextBlock
+                            Margin="5,0,0,10"
+                            Foreground="Black"
+                            FontSize="13"
+                            VerticalAlignment="Center"
+                            Text="{Binding updatedAtString}"/>
                         <ListView
                             ItemsSource="{Binding menuItems}"
                             SelectionMode="None"
@@ -180,7 +192,7 @@
                     <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
-                        Width="300"
+                        Width="500"
                         Background="White"
                         BorderBrush="NavajoWhite"
                         BorderThickness="2">
@@ -191,6 +203,12 @@
                             TextDecorations="Underline"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
+                        <TextBlock
+                            Foreground="Black"
+                            FontSize="13"
+                            Margin="5,0,0,10"
+                            VerticalAlignment="Center"
+                            Text="{Binding updatedAtString}"/>
                         <ListView
                             ItemsSource="{Binding menuItems}"
                             SelectionMode="None"
@@ -242,7 +260,7 @@
                     <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
-                        Width="300"
+                        Width="500"
                         Background="White"
                         BorderBrush="NavajoWhite"
                         BorderThickness="2">
@@ -253,6 +271,12 @@
                             VerticalAlignment="Center"
                             TextDecorations="Underline"
                             Text="{Binding table_number_string}"/>
+                        <TextBlock
+                            Margin="5,0,0,10"
+                            Foreground="Black"
+                            FontSize="13"
+                            VerticalAlignment="Center"
+                            Text="{Binding updatedAtString}"/>
                         <ListView
                             ItemsSource="{Binding menuItems}"
                             IsItemClickEnabled="False"
@@ -304,7 +328,7 @@
                     <StackPanel
                         Orientation="Vertical"
                         Margin="10,10,0,0"
-                        Width="300"
+                        Width="500"
                         Background="White"
                         BorderBrush="NavajoWhite"
                         BorderThickness="2">
@@ -315,6 +339,12 @@
                             TextDecorations="Underline"
                             VerticalAlignment="Center"
                             Text="{Binding table_number_string}"/>
+                        <TextBlock
+                            Margin="5,0,0,10"
+                            Foreground="Black"
+                            FontSize="15"
+                            VerticalAlignment="Center"
+                            Text="{Binding updatedAtString}"/>
                         <ListView
                             ItemsSource="{Binding menuItems}"
                             IsItemClickEnabled="False"

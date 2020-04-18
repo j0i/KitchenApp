@@ -10,8 +10,10 @@ namespace KitchenApp.Models
     //Properties to be held in IngredientsList
     public class Ingredients : RealmObject
     {
+        [PrimaryKey]
         public string _id { get; set; }
         public string name { get; set; }
         public int quantity {get; set;}
+        public string quantityString => quantity.ToString();
     }
 }
