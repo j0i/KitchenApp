@@ -8,7 +8,7 @@ namespace KitchenApp.Models
 {
     public class DeleteResponse
     {
-         public int n { get; set; }
+        public int n { get; set; }
         public OperationTime opTime { get; set; }
         public string electionId { get; set; }
         public int ok { get; set; }

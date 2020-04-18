@@ -4,7 +4,7 @@ using System.Text;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace KitchenApp.Models.ServiceRequests
+namespace KitchenApp.Models.Requests
 {
     public class PostNotificationsRequest : ServiceRequest
     {

@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitchenApp.Models.ServiceRequests
+namespace KitchenApp.Models.Requests
 {
     class PutToPreparedRequest : ServiceRequest
     {
