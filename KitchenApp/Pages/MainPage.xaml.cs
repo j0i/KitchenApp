@@ -209,8 +209,7 @@ namespace KitchenApp
 
             await DecrementIngredients();
             var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(c_ordersMaster._id, c_ordersMaster.menuItems.ToList());
-            await PostNotificationsRequest.SendNotificationRequest(notificationType, RealmManager.Find<Employee>(c_ordersMaster.employee_id).ToString(), "Kitchen");
-            //await PostNotificationsRequest.SendNotificationRequest(notificationType, c_ordersMaster.employee_id, "Kitchen");
+            await PostNotificationsRequest.SendNotificationRequest(notificationType, c_ordersMaster.employee_id, "Kitchen");
             uxOrdersPopup.IsOpen = false;
         }
 
