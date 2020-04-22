@@ -207,7 +207,7 @@ namespace KitchenApp
         {
             string notificationType = "Order Complete for " + c_ordersMaster.table_number_string;
 
-            await DecrementIngredients();
+           // await DecrementIngredients();
             var validUpdatePreparedRequest = await PutToPreparedRequest.SendPutToPreparedRequest(c_ordersMaster._id, c_ordersMaster.menuItems.ToList());
             await PostNotificationsRequest.SendNotificationRequest(notificationType, c_ordersMaster.employee_id, "Kitchen");
             uxOrdersPopup.IsOpen = false;
